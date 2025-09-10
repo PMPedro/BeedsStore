@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1007472707791",
+    "project_id": "beedsstore-ef1fa",
+    "storage_bucket": "beedsstore-ef1fa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007472707791:android:7b8a9486fbf7c716b3cfba",
+        "android_client_info": {
+          "package_name": "pt.coimbra.neuza.beedsstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007472707791-ebiicgsm6m9f0i6bemcitm3dea6ifnn7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pt.coimbra.neuza.beedsstore",
+            "certificate_hash": "14e8f06f6b649778a88e79ea1243d08df2445422"
+          }
+        },
+        {
+          "client_id": "1007472707791-tjbinqbp3ecoovvskhorq2isep89oo05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8m3HWdjZXxaftSazoXzbfPuBAJ2k450Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007472707791-tjbinqbp3ecoovvskhorq2isep89oo05.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

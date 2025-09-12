@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import pt.coimbra.neuza.beedsstore.adminpanel.addcatalog.view.AddCatalog
+import pt.coimbra.neuza.beedsstore.adminpanel.catalog.view.Catalog
 import pt.coimbra.neuza.beedsstore.adminpanel.mainadminpage.view.MainScreen
 import pt.coimbra.neuza.beedsstore.authentication.view.LoginScreen
 import pt.coimbra.neuza.beedsstore.authentication.view.SignUp
@@ -29,6 +31,14 @@ fun NavigationGrath(
 
         composable(Screen.MainScreenAdmin.route){
             MainScreen(navController = navController)
+        }
+
+        composable(Screen.CatalogAdmin.route){
+            Catalog()
+        }
+
+        composable(Screen.AddCatalogAdmin.route){
+            AddCatalog()
         }
 
 

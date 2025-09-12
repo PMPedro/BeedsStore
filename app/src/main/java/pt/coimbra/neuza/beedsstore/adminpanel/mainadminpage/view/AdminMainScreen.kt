@@ -1,8 +1,14 @@
 package pt.coimbra.neuza.beedsstore.adminpanel.mainadminpage.view
 
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -40,6 +46,7 @@ import pt.coimbra.neuza.beedsstore.adminpanel.mainadminpage.model.BottomNav
 import pt.coimbra.neuza.beedsstore.adminpanel.mainadminpage.model.ButtomBarIcons
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.runtime.LaunchedEffect
 
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.platform.LocalContext
@@ -47,6 +54,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
+import kotlin.contracts.contract
 
 
 @Composable
@@ -54,6 +63,8 @@ fun MainScreen(navController: NavController){
     val context = LocalContext.current
     val email = "azuentime@gmail.com"
     val devEmail = "pedromartinsgpsi1619@gmail.com"
+
+
     Column(modifier = Modifier
         .fillMaxSize()
         .background(color = colorResource(R.color.background_green))){

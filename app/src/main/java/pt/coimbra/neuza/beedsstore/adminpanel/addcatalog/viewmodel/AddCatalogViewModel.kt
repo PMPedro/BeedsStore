@@ -1,5 +1,6 @@
 package pt.coimbra.neuza.beedsstore.adminpanel.addcatalog.viewmodel
 
+import android.content.Context
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,7 +11,7 @@ import pt.coimbra.neuza.beedsstore.Injection
 import pt.coimbra.neuza.beedsstore.adminpanel.addcatalog.data.BeedRepository
 import pt.coimbra.neuza.beedsstore.adminpanel.model.Beed
 
-class CatalogViewModel: ViewModel() {
+class AddCatalogViewModel: ViewModel() {
     private val beedRepo = BeedRepository(Injection.instance(), Injection.storageInstance())
 
     sealed interface UiState {
@@ -24,11 +25,11 @@ class CatalogViewModel: ViewModel() {
     private val _uiState = MutableStateFlow<UiState>(UiState.Idle)
     val uiState : StateFlow<UiState> = _uiState
 
-    fun onPickAndSave(imageUri : Uri, beed : Beed){
+    fun onPickAndSave(imageUri : Uri, beed : Beed, context : Context){
         viewModelScope.launch {
             _uiState.value = UiState.Loading
             try {
-                beedRepo.createBeedWithImage(imageUri = imageUri, beed = beed)
+                beedRepo.createBeedWithImage(imageUri = imageUri, beed = beed , context)
                 _uiState.value = UiState.Sucess
             }catch (e : Exception){
                 _uiState.value = UiState.Error(e.message ?: "Upload Failed")

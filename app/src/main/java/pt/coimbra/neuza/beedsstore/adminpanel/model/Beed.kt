@@ -1,4 +1,4 @@
-package pt.coimbra.neuza.beedsstore.adminpanel.mainadminpage.model
+package pt.coimbra.neuza.beedsstore.adminpanel.model
 
 data class Beed(
     val description : String = "",
@@ -8,3 +8,5 @@ data class Beed(
 )
 
 var beedList =  mutableListOf<Beed>()
+
+var shopBeedList = mutableListOf<Beed>()

@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import pt.coimbra.neuza.beedsstore.Injection
 import pt.coimbra.neuza.beedsstore.adminpanel.addcatalog.data.BeedRepository
-import pt.coimbra.neuza.beedsstore.adminpanel.mainadminpage.model.Beed
+import pt.coimbra.neuza.beedsstore.adminpanel.model.Beed
 
 class CatalogViewModel: ViewModel() {
     private val beedRepo = BeedRepository(Injection.instance(), Injection.storageInstance())

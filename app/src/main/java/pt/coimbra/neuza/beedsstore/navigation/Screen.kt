@@ -8,7 +8,7 @@ sealed class Screen(val route: String){
 
     object AddCatalogAdmin:Screen("addcatalogadmin")
 
-    object AddHighlightsAdmin:Screen("addhighlightsadmin")
+    object AboutMeAdmin:Screen("aboutmeadmin")
 
     object CatalogAdmin:Screen("catalogadmin")
 

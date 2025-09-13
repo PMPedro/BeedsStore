@@ -1,4 +1,4 @@
-package pt.coimbra.neuza.beedsstore.adminpanel.mainadminpage.model
+package pt.coimbra.neuza.beedsstore.adminpanel.mainAdminScreen.model
 
 import androidx.annotation.DrawableRes
 import pt.coimbra.neuza.beedsstore.R
@@ -13,6 +13,6 @@ data class BottomNav(
 val ButtomBarIcons = listOf(
     BottomNav("Add Catalog", Screen.AddCatalogAdmin.route, R.drawable.add_to_catalog_green) ,
     BottomNav("Catalog", Screen.CatalogAdmin.route, R.drawable.catalog_green),
-    BottomNav("Add Highlights", Screen.AddHighlightsAdmin.route, R.drawable.add_highlights_green)
+    BottomNav("About Me", Screen.AboutMeAdmin.route, R.drawable.icon_about_me)
 
 )

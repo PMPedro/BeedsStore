@@ -6,7 +6,3 @@ data class Beed(
     val price : Double= 0.0,
     val imageURL: String = ""
 )
-
-var beedList =  mutableListOf<Beed>()
-
-var shopBeedList = mutableListOf<Beed>()

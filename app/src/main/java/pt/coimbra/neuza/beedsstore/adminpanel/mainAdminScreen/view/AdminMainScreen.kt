@@ -1,33 +1,18 @@
-package pt.coimbra.neuza.beedsstore.adminpanel.mainadminpage.view
+package pt.coimbra.neuza.beedsstore.adminpanel.mainAdminScreen.view
 
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
-import android.widget.Toast
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.ColorRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.BottomNavigation
 import androidx.compose.material.Scaffold
-import androidx.compose.material3.AlertDialogDefaults.containerColor
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -42,11 +27,9 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import pt.coimbra.neuza.beedsstore.R
-import pt.coimbra.neuza.beedsstore.adminpanel.mainadminpage.model.BottomNav
-import pt.coimbra.neuza.beedsstore.adminpanel.mainadminpage.model.ButtomBarIcons
+import pt.coimbra.neuza.beedsstore.adminpanel.mainAdminScreen.model.ButtomBarIcons
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
-import androidx.compose.runtime.LaunchedEffect
 
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.platform.LocalContext
@@ -54,8 +37,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
-import androidx.core.content.ContextCompat
-import kotlin.contracts.contract
 
 
 @Composable
@@ -63,6 +44,8 @@ fun MainScreen(navController: NavController){
     val context = LocalContext.current
     val email = "azuentime@gmail.com"
     val devEmail = "pedromartinsgpsi1619@gmail.com"
+
+
 
 
     Column(modifier = Modifier
@@ -123,20 +106,25 @@ fun MainScreen(navController: NavController){
     }
 }
 @Composable
-fun BottomBar (navController: NavController){
+fun BottomBar(navController: NavController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
- NavigationBar (containerColor = colorResource(R.color.component_purple) , modifier = Modifier.fillMaxWidth()) {
-     ButtomBarIcons.forEach {
-         item ->
-         NavigationBarItem(
-             icon = { Icon(painterResource(id = item.icon), contentDescription = item.title , tint = colorResource(R.color.component_hi_purple)) } ,
-             label = {Text(text = item.title, color = Color.White)},
-             selected = currentRoute == item.route ,
-             onClick = {navController.navigate(item.route)}
-         )
-     }
- }
+
+    NavigationBar(
+        containerColor = colorResource(R.color.component_purple),
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        ButtomBarIcons.forEach { item ->
+            NavigationBarItem(
+                icon = { Icon(painterResource(id = item.icon), contentDescription = item.title, tint = colorResource(R.color.component_hi_purple)) },
+                label = { Text(text = item.title, color = Color.White) },
+                selected = currentRoute == item.route,
+                onClick = {
+                    navController.navigate(item.route)
+                }
+            )
+        }
+    }
 }
 
 @Preview(showBackground = true)

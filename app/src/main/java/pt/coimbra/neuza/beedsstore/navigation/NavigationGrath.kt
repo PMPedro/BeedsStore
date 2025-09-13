@@ -4,9 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import pt.coimbra.neuza.beedsstore.adminpanel.addcatalog.view.AddCatalog
-import pt.coimbra.neuza.beedsstore.adminpanel.catalog.view.Catalog
-import pt.coimbra.neuza.beedsstore.adminpanel.mainadminpage.view.MainScreen
+import pt.coimbra.neuza.beedsstore.adminpanel.aboutMeScreen.view.AboutMe
+import pt.coimbra.neuza.beedsstore.adminpanel.addCatalogScreen.view.AddCatalog
+import pt.coimbra.neuza.beedsstore.adminpanel.catalogScreen.view.Catalog
+import pt.coimbra.neuza.beedsstore.adminpanel.mainAdminScreen.view.MainScreen
 import pt.coimbra.neuza.beedsstore.authentication.view.LoginScreen
 import pt.coimbra.neuza.beedsstore.authentication.view.SignUp
 import pt.coimbra.neuza.beedsstore.authentication.viewmodel.AuthViewModel
@@ -18,11 +19,14 @@ fun NavigationGrath(
 ){
     NavHost(navController = navController , startDestination = Screen.LoginScreen.route)
     {
-        composable(Screen.LoginScreen.route){
+        composable(Screen.LoginScreen.route) {
             LoginScreen(
-                onNavigateToSignUp = {navController.navigate(Screen.SignUpScreen.route)} ,
+                onNavigateToSignUp = { navController.navigate(Screen.SignUpScreen.route) },
                 authViewModel = authViewModel,
-                onLoginSucessAdmin =  {navController.navigate(Screen.MainScreenAdmin.route)})
+                onLoginSucessAdmin = {
+                    navController.navigate(Screen.MainScreenAdmin.route)
+                }
+            )
         }
 
         composable(Screen.SignUpScreen.route){
@@ -30,7 +34,7 @@ fun NavigationGrath(
         }
 
         composable(Screen.MainScreenAdmin.route){
-            MainScreen(navController = navController)
+            MainScreen(navController)
         }
 
         composable(Screen.CatalogAdmin.route){
@@ -39,6 +43,9 @@ fun NavigationGrath(
 
         composable(Screen.AddCatalogAdmin.route){
             AddCatalog()
+        }
+        composable(Screen.AboutMeAdmin.route){
+            AboutMe()
         }
 
 

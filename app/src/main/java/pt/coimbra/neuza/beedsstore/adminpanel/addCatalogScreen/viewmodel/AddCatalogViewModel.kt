@@ -1,4 +1,4 @@
-package pt.coimbra.neuza.beedsstore.adminpanel.addcatalog.viewmodel
+package pt.coimbra.neuza.beedsstore.adminpanel.addCatalogScreen.viewmodel
 
 import android.content.Context
 import android.net.Uri
@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import pt.coimbra.neuza.beedsstore.Injection
-import pt.coimbra.neuza.beedsstore.adminpanel.addcatalog.data.BeedRepository
+import pt.coimbra.neuza.beedsstore.adminpanel.addCatalogScreen.data.BeedRepository
 import pt.coimbra.neuza.beedsstore.adminpanel.model.Beed
 
 class AddCatalogViewModel: ViewModel() {
@@ -36,4 +36,6 @@ class AddCatalogViewModel: ViewModel() {
             }
         }
     }
+
+
 }

@@ -1,8 +1,6 @@
-package pt.coimbra.neuza.beedsstore.adminpanel.addcatalog.view
+package pt.coimbra.neuza.beedsstore.adminpanel.addCatalogScreen.view
 
 import android.Manifest
-import android.content.Context
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.widget.Toast
@@ -21,7 +19,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -35,10 +32,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import pt.coimbra.neuza.beedsstore.R
-import pt.coimbra.neuza.beedsstore.adminpanel.addcatalog.viewmodel.AddCatalogViewModel
+import pt.coimbra.neuza.beedsstore.adminpanel.addCatalogScreen.viewmodel.AddCatalogViewModel
 import pt.coimbra.neuza.beedsstore.adminpanel.model.Beed
 
 @Composable
@@ -142,6 +138,11 @@ fun AddCatalog(){
                 if(selectedImageUri != null ){
                     val beed = Beed(title = title, description = description, price = price.toDouble())
                     viewModel.onPickAndSave(selectedImageUri!!, beed, context)
+                    title = ""
+                    description = ""
+                    price = ""
+                    selectedImageUri = null
+
                 } else
                     Toast.makeText(context, "Nao Meteu imagem corretamente", Toast.LENGTH_LONG).show()
             } ,

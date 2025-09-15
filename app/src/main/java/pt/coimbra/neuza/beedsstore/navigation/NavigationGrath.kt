@@ -11,6 +11,8 @@ import pt.coimbra.neuza.beedsstore.adminpanel.mainAdminScreen.view.MainScreen
 import pt.coimbra.neuza.beedsstore.authentication.view.LoginScreen
 import pt.coimbra.neuza.beedsstore.authentication.view.SignUp
 import pt.coimbra.neuza.beedsstore.authentication.viewmodel.AuthViewModel
+import pt.coimbra.neuza.beedsstore.userpanel.catalog.view.CatalogViewUser
+import pt.coimbra.neuza.beedsstore.userpanel.shoppingList.view.ShoppingList
 
 @Composable
 fun NavigationGrath(
@@ -25,12 +27,17 @@ fun NavigationGrath(
                 authViewModel = authViewModel,
                 onLoginSucessAdmin = {
                     navController.navigate(Screen.MainScreenAdmin.route)
-                }
+                } ,
+                onNavigatetoCatalog = {navController.navigate(Screen.CatalogUser.route)} ,
+                onLoginSucessComon = {navController.navigate(Screen.CatalogUser.route)}
             )
         }
 
         composable(Screen.SignUpScreen.route){
-            SignUp(authViewModel = authViewModel, onLoginNav = {navController.navigate(Screen.LoginScreen.route)})
+            SignUp(authViewModel = authViewModel,
+                onLoginNav = {navController.navigate(Screen.LoginScreen.route)} ,
+                onCatalogNav = {navController.navigate(Screen.CatalogUser.route)}
+                )
         }
 
         composable(Screen.MainScreenAdmin.route){
@@ -47,6 +54,16 @@ fun NavigationGrath(
         composable(Screen.AboutMeAdmin.route){
             AboutMe()
         }
+
+        composable(Screen.CatalogUser.route){
+            CatalogViewUser(navController)
+        }
+
+        composable(Screen.ShoppingListUser.route){
+            ShoppingList(navController)
+        }
+
+
 
 
 

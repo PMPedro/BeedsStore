@@ -12,5 +12,11 @@ sealed class Screen(val route: String){
 
     object CatalogAdmin:Screen("catalogadmin")
 
+    object CatalogUser:Screen("cataloguser")
+
+
+
+    object ShoppingListUser:Screen("shoppinglistuser")
+
 
 }

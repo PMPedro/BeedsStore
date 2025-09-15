@@ -92,7 +92,7 @@ fun MainScreen(navController: NavController){
                     textDecoration = TextDecoration.Underline,
                     modifier = Modifier.clickable {
                         val intent = Intent(Intent.ACTION_SENDTO).apply {
-                            data = Uri.parse("mailto:$email")
+                            data = Uri.parse("mailto:$devEmail")
                         }
                         context.startActivity(intent)
                     }

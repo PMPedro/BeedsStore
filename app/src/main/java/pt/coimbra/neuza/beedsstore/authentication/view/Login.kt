@@ -45,7 +45,9 @@ import pt.coimbra.neuza.beedsstore.authentication.viewmodel.AuthViewModel
 fun LoginScreen(
     authViewModel: AuthViewModel,
     onNavigateToSignUp: () -> Unit,
-    onLoginSucessAdmin: () -> Unit
+    onLoginSucessAdmin: () -> Unit ,
+    onNavigatetoCatalog: () -> Unit,
+    onLoginSucessComon: () -> Unit
 ){
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -95,14 +97,13 @@ fun LoginScreen(
                 authViewModel.userType(email)
                     when(userTypeResult){
                         is UserType.Admin ->{
-                            Toast.makeText(context,"Admin!", Toast.LENGTH_LONG ).show()
                             onLoginSucessAdmin()
                         }
                         is UserType.Error -> {
                             Toast.makeText(context,"Error, please try again!", Toast.LENGTH_LONG ).show()
                         }
                         is UserType.General ->{
-                            Toast.makeText(context,"General", Toast.LENGTH_LONG ).show()
+                            onLoginSucessComon()
                         }
                         else -> {}
                     }
@@ -128,7 +129,7 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.padding(16.dp))
         Text("Just Want to see catalog",color = Color.White , modifier = Modifier.clickable{
-            //todo change Screen
+            onNavigatetoCatalog()
         } )
 
     }
@@ -138,5 +139,5 @@ fun LoginScreen(
 @Composable
 fun loginPrev(){
     val authViewModel : AuthViewModel = viewModel ()
-    LoginScreen(authViewModel, {}, {})
+    LoginScreen(authViewModel, {}, {}, {}, {})
 }

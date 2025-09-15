@@ -35,6 +35,7 @@ import pt.coimbra.neuza.beedsstore.authentication.viewmodel.AuthViewModel
 fun SignUp(
     authViewModel: AuthViewModel,
     onLoginNav: () -> Unit,
+    onCatalogNav: () -> Unit
 
 ){
     var email by remember { mutableStateOf("") }
@@ -92,7 +93,6 @@ fun SignUp(
             when (result) {
                 is Result.Success -> {
                   //  onSignUpSucess()
-                    Toast.makeText(context, "Account created!", Toast.LENGTH_LONG).show()
                     onLoginNav()
                 }is Result.Error -> {
                     Toast.makeText(context, "Error creating account, please try again", Toast.LENGTH_LONG).show()
@@ -116,6 +116,7 @@ fun SignUp(
 
         Text("Just want to see the catalog", color = Color.White, modifier = Modifier.clickable{
             //todo Navigation
+            onCatalogNav()
         })
 
 

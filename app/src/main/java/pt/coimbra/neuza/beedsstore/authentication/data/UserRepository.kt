@@ -14,7 +14,7 @@ class UserRepository(private val auth: FirebaseAuth, private val firestore: Fire
     suspend fun signUp(email : String , password : String, username : String) : pt.coimbra.neuza.beedsstore.authentication.model.Result<Boolean> =
         try {
             auth.createUserWithEmailAndPassword(email,password).await()
-            val user = User(username = username, email = email, "General")
+            val user = User(username = username, email = email, "admin")
             saveUsersToFirestore(user)
             pt.coimbra.neuza.beedsstore.authentication.model.Result.Success(true)
         } catch (e: Exception) {
